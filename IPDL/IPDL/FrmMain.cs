@@ -20,11 +20,12 @@ namespace IPDL
             InitializeComponent();
 
             listView_Source.Items.Add(new ListViewItem(new string[] { "烈火每日代理", "http://www.veryhuo.com/res/ip/" }));
-            listView_Source.Items[0].Checked = true;
+            listView_Source.Items.Add(new ListViewItem(new string[] { "free socks5", "http://www.vipsocks24.com/" }));
+            listView_Source.Items.Add(new ListViewItem(new string[] { "纯真代理", "http://www.cz88.net/proxy/index.aspx" }));
         }
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("确定要退出【独醒代理】？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("确定要退出？", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
             {
                 e.Cancel = true;
                 return;
@@ -104,7 +105,7 @@ namespace IPDL
         }
         private void btn_清理_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("确定要删除“连接失败”的代理吗？\r\n数据删除后不能恢复！有些代理过段时间可能还可以用！", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (MessageBox.Show("确定要删除“验证失败”的代理吗？\r\n数据删除后不能恢复！有些代理过段时间可能还可以用！", "警告", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             foreach (ListViewItem lvi in listView_Info.Items)
             {
@@ -230,9 +231,12 @@ namespace IPDL
         }
         private void btn_下载代理资源_Click(object sender, EventArgs e)
         {
-            Thread thread = new Thread(GetIPs);
-            thread.IsBackground = true;
-            thread.Start();
+            foreach (ListViewItem lvi in listView_Source.CheckedItems)
+            {
+                Thread thread = new Thread(GetIPs);
+                thread.IsBackground = true;
+                thread.Start(new ZiYuan(lvi.SubItems[0].Text, lvi.SubItems[1].Text));
+            }
         }
         private void listView_Info_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -269,16 +273,14 @@ namespace IPDL
             }
         }
 
-        private void GetIPs()
+        private void GetIPs(object o)
         {
-            foreach (ListViewItem lvi in listView_Source.CheckedItems)
-            {
-                string strHTML = GetHtmlCode(lvi.SubItems[0].Text, lvi.SubItems[1].Text);
-                if (strHTML == "error")
-                    continue;
-                strHTML = ReplaceStrHtml(strHTML);
-                AddInfo(strHTML);
-            }
+            ZiYuan zy = o as ZiYuan;
+            string strHTML = GetHtmlCode(zy.name, zy.url);
+            if (strHTML == "error")
+                return;
+            strHTML = ReplaceStrHtml(strHTML);
+            AddInfo(strHTML);
         }
         private string GetHtmlCode(string name, string url)
         {

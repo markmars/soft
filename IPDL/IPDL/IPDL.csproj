@@ -64,6 +64,7 @@
     <Compile Include="PingHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlManage.cs" />
     <Compile Include="ZiYuan.cs" />
     <EmbeddedResource Include="FrmDaiLiInfo.resx">
       <DependentUpon>FrmDaiLiInfo.cs</DependentUpon>
