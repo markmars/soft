@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPDL", "IPDL\IPDL.csproj", "{1D4E999D-7962-46AB-9C3B-C77FF1860F9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPAddressControlLib", "IPAddressControlLib\IPAddressControlLib.csproj", "{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,16 +23,6 @@ Global
 		{1D4E999D-7962-46AB-9C3B-C77FF1860F9A}.Release|Mixed Platforms.Build.0 = Release|x86
 		{1D4E999D-7962-46AB-9C3B-C77FF1860F9A}.Release|x86.ActiveCfg = Release|x86
 		{1D4E999D-7962-46AB-9C3B-C77FF1860F9A}.Release|x86.Build.0 = Release|x86
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{2463CBF1-A5FC-406A-AF4D-89D96E66A8D7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

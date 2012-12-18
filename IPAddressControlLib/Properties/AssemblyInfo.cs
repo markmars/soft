@@ -36,7 +36,7 @@ using System.Security.Permissions;
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
 [assembly: AssemblyProduct( "IPAddressControlLib" )]
-[assembly: AssemblyCopyright( "Copyright (c) 2007 Michael Chapman" )]
+[assembly: AssemblyCopyright("Copyright (c) 2012 markmars")]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
