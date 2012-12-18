@@ -365,7 +365,7 @@ namespace IPDL
         }
         private void SaveSetting()
         {
-            //INIFile file = new INIFile("Client.ini");
+
         }
     }
 }

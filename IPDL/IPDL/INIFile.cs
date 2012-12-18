@@ -1,84 +1,60 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
-using System.Diagnostics;
-using System.IO;
 
 namespace IPDL
 {
-    public class INIFile
+    public class IniFile
     {
-        /// <summary>
-        /// ini文件名（完整路径）
-        /// </summary>
-        private string m_strFileName;
+        [DllImport("kernel32")]
+        private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
+        [DllImport("kernel32")]
+        private static extern int GetPrivateProfileString(string section, string key, string defVal, StringBuilder retVal, int size, string filePath);
+        [DllImport("kernel32")]
+        private static extern int GetPrivateProfileString(string section, string key, string defVal, Byte[] retVal, int size, string filePath);
 
-        /// <summary>
-        /// ini文件内容（行），字符串集合
-        /// </summary>
-        private List<string> m_listLine;
-
-        /// <summary>
-        /// 加载ini文件
-        /// </summary>
-        /// <param name="strFileName">文件名（完整路径）</param>
-        public INIFile(string strFileName)
+        public string strPath;
+        public IniFile(string strPath)
         {
-            Debug.Assert(strFileName != null);
-            Debug.Assert(strFileName != string.Empty);
-            m_strFileName = strFileName;
-            Load();
+            this.strPath = strPath;
+        }
+        /// <summary>
+        /// 写INI文件
+        /// </summary>
+        /// <param name="section">段落</param>
+        /// <param name="key">键</param>
+        /// <param name="iValue">值</param>
+        public void WriteValue(string section, string key, string iValue)
+        {
+            WritePrivateProfileString(section, key, iValue, this.strPath);
         }
 
         /// <summary>
-        /// 读取ini文件内容
+        /// 读取INI文件
         /// </summary>
-        private void Load()
+        /// <param name="section">段落</param>
+        /// <param name="key">键</param>
+        /// <returns>返回的键值</returns>
+        public string IniReadValue(string section, string key)
         {
-            StreamReader sr = new StreamReader(m_strFileName);
-            string[] strsLine = sr.ReadToEnd().Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-            sr.Close();
+            StringBuilder temp = new StringBuilder(255);
 
-            m_listLine = new List<string>();
-            m_listLine.AddRange(strsLine);
+            int i = GetPrivateProfileString(section, key, "", temp, 255, this.strPath);
+            return temp.ToString();
         }
 
         /// <summary>
-        /// 获得ini文件对应键的值,原型：
-        /// [strSection]
-        /// strName=value
+        /// 读取INI文件
         /// </summary>
-        /// <param name="strSection">类别名称</param>
-        /// <param name="strName">键名</param>
-        /// <returns>值</returns>
-        public string GetValue(string strSection, string strName)
+        /// <param name="Section">段，格式[]</param>
+        /// <param name="Key">键</param>
+        /// <returns>返回byte类型的section组或键值组</returns>
+        public byte[] IniReadValues(string section, string key)
         {
-            string strSectionName = string.Format("[{0}]", strSection);
+            byte[] temp = new byte[255];
 
-            bool bInSection = false;
-            foreach (string _strLine in m_listLine)
-            {
-                string strLine = _strLine.Trim();
-                strLine = strLine.Replace(" ", string.Empty);
-
-                if (strLine.StartsWith("[") && strLine.EndsWith("]"))//section
-                {
-                    if (string.Compare(strLine, strSectionName, true) == 0)
-                        bInSection = true;
-                    else
-                        bInSection = false;
-                }
-                else if (strLine.Contains("="))//普通内容
-                {
-                    if (!bInSection)
-                        continue;
-
-                    if (strLine.StartsWith(strName + "="))
-                        return strLine.Substring(strName.Length + 1);
-                }
-                else { }//垃圾内容, 忽略
-            }
-            return null;
+            int i = GetPrivateProfileString(section, key, "", temp, 255, this.strPath);
+            return temp;
         }
     }
 }
