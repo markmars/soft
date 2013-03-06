@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AutoUpdater>
+  <description>Application autoUpdate</description>
+  <Updater>
+    <Url>http://www.wakealone.com/update</Url>
+    <LastUpdateTime>2013-1-25</LastUpdateTime>
+  </Updater>
+  <Application applicationId="InfoTips">
+    <EntryPoint>InfoTips.exe</EntryPoint>
+    <Location>.</Location>
+    <Version>1.0.0.0</Version>
+  </Application>
+  <Files>
+    <File Ver="1.0.0.0" Name="InfoTips.exe" />
+    <File Ver="1.0.0.0" Name="InfoTips.exe.config" />
+  </Files>
+</AutoUpdater>
