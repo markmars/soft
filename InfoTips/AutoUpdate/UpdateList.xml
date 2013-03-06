@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="gb2312"?>
+<AutoUpdater>
+  <description>Application autoUpdate</description>
+  <Updater>
+    <Url>http://www.95fx.com/tov</Url>
+    <LastUpdateTime>2013-1-25</LastUpdateTime>
+  </Updater>
+  <Application applicationId="InfoTips">
+    <EntryPoint>InfoTips.exe</EntryPoint>
+  </Application>
+  <Files>
+    <File Ver="1.0.0.1" Name="InfoTips.exe" />
+    <File Ver="1.0.0.1" Name="InfoTips.exe.config" />
+  </Files>
+</AutoUpdater>

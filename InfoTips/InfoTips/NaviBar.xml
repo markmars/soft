@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="gb2312"?>
+<NaviBars>
+  <Group Name="银行外汇牌价">
+    <NaviBar Name="网上银行登陆页" Url="http://www.95fx.com/tools/flash/bank.php" Enable="1"/>
+    <NaviBar Name="中国银行" Url="http://www.boc.cn/sourcedb/whpj/" Enable="1"/>
+    <NaviBar Name="汇丰银行" Url="http://www.hsbc.com.cn/1/2/misc-cn/exchange-rates/" Enable="1"/>
+    <NaviBar Name="农业银行" Url="http://www.abchina.com/cn/FinancialService/ForeignExchange/Information/ListPrice/" Enable="1"/>
+    <NaviBar Name="中国工商" Url="http://www.icbc.com.cn/ICBC/%e9%87%91%e8%9e%8d%e4%bf%a1%e6%81%af/%e8%a1%8c%e6%83%85%e6%95%b0%e6%8d%ae/%e4%ba%ba%e6%b0%91%e5%b8%81%e5%8d%b3%e6%9c%9f%e5%a4%96%e6%b1%87%e7%89%8c%e4%bb%b7/" Enable="1"/>
+    <NaviBar Name="建设银行" Url="http://forex.ccb.com/cn/forex/quotation/forex_quotations.html" Enable="1"/>
+    <NaviBar Name="浦发银行" Url="http://www.spdb.com.cn/chpage/c473/" Enable="1"/>
+    <NaviBar Name="招商银行" Url="http://fx.cmbchina.com/hq/" Enable="1"/>
+    <NaviBar Name="兴业银行" Url="http://www.cib.com.cn/homepage/ifx/ifxMarket.jsp" Enable="1"/>
+    <NaviBar Name="北京银行" Url="http://www.bankofbeijing.com.cn/personal/whpj.aspx" Enable="1"/>
+    <NaviBar Name="交通银行" Url="http://www.bankcomm.com/BankCommSite/cn/foreignExchangeSearch_Cn.jsp?id=1213530800100%26type=CMS.STD" Enable="1"/>
+  </Group>
+  <Group Name="实用工具">
+    <NaviBar Name="全球股指" Url="http://www.95fx.com/tools/flash/otime-1.php" Enable="1"/>
+    <NaviBar Name="历史指标汇总" Url="http://www.95fx.com/tools/flash/otime-cnforex.php" Enable="1"/>
+    <NaviBar Name="世界时间时间" Url="http://www.95fx.com/tools/flash/otime.php" Enable="1"/>
+    <NaviBar Name="外汇兑换器_和讯" Url="http://www.95fx.com/tools/flash/jsq.php" Enable="1"/>
+    <NaviBar Name="外汇兑换器_环球" Url="http://www.95fx.com/tools/flash/jsq-cnforex.php" Enable="1"/>
+    <NaviBar Name="网上银行登陆页" Url="http://www.95fx.com/tools/flash/bank.php" Enable="1"/>
+    <NaviBar Name="各国指标汇总_汇达" Url="http://www.95fx.com/tools/flash/huida-data.php" Enable="1"/>
+    <NaviBar Name="多空头持仓_实时" Url="http://www.95fx.com/tools/flash/stools/fx.php" Enable="1"/>
+  </Group>
+  <Group Name="在线行情">
+    <NaviBar Name="Gold 黄金行情_指标" Url="http://www.95fx.com/tools/flash/hx/gold-hexun.php"  Enable="1"/>
+    <NaviBar Name="SILVER白银行情_指标" Url=" http://www.95fx.com/tools/flash/hx/silver-hexun.php"  Enable="1"/>
+    <NaviBar Name="RMB 人民币行情_指标" Url="http://www.95fx.com/tools/flash/hx/rmb-hexun.php"  Enable="1"/>
+    <NaviBar Name="USD 美元行情_指标" Url="http://www.95fx.com/tools/flash/hx/USD.php"  Enable="1"/>
+    <NaviBar Name="ICBC_纸黄金行情" Url="http://www.95fx.com/tools/flash/icbc.php"  Enable="1"/>
+    <NaviBar Name="ICBC外汇行情" Url="http://www.95fx.com/tools/flash/icbc-wh.php"  Enable="1"/>
+    <NaviBar Name="T+D实时行情" Url="http://www.95fx.com/tools/flash/td.php"  Enable="1"/>
+    <NaviBar Name="star外汇行情" Url="http://www.95fx.com/tools/flash/star.php"  Enable="1"/>
+    <NaviBar Name="WEB版综合行情" Url="http://www.95fx.com/tools/flash/all.php"  Enable="1"/>
+    <NaviBar Name="华泰_实时行情" Url="http://www.95fx.com/tools/flash/htsc.php"  Enable="1"/>
+    <NaviBar Name="大智慧_实时行情" Url="http://www.95fx.com/tools/flash/dzh.php"  Enable="1"/>
+    <NaviBar Name="同花顺_实时行情" Url="http://www.95fx.com/tools/flash/ths.php"  Enable="1"/>
+  </Group>
+  <Group Name="常用组合">
+    <NaviBar Name="贵金属" Url="http://www.95fx.com/tools/flash/stools/bar-1.php"  Enable="1"/>
+    <NaviBar Name="外汇行情" Url=" http://www.95fx.com/tools/flash/stools/bar-2.php"  Enable="1"/>
+    <NaviBar Name="市场报价" Url=" http://www.95fx.com/tools/flash/stools/hy.php"  Enable="1"/>
+    <NaviBar Name="全球股指" Url="http://www.95fx.com/tools/flash/stools/bar-3.php"  Enable="1"/>
+    <NaviBar Name="金价-恒信贵" Url="http://www.365huangjin.com/images/gold.php"  Enable="1"/>
+    <NaviBar Name="铂银钯-和讯" Url="http://www.95fx.com/tools/flash/stools/hx-1.php"  Enable="1"/>
+    <NaviBar Name="图形行情-汇达" Url="http://www.95fx.com/tools/flash/stools/huidafx.php"  Enable="1"/>
+    <NaviBar Name="多空持仓比例" Url="http://www.95fx.com/tools/flash/stools/cc.php"  Enable="1"/>
+    <NaviBar Name="持仓数据_20分" Url=" http://www.95fx.com/tools/flash/stools/fx.php"  Enable="1"/>
+    <NaviBar Name="ICBC纸黄金行情" Url="http://www.95fx.com/tools/flash/icbc.php"  Enable="1"/>
+    <NaviBar Name="国内T+D实时行情" Url="http://www.95fx.com/tools/flash/td.php"  Enable="1"/>
+  </Group>
+  <Group Name="轻松时刻">
+    <NaviBar Name="网络电视" Url=" http://www.95fx.com/tools/flash/joy/TV.php"  Enable="1"/>
+    <NaviBar Name="qiy电影" Url=" http://www.95fx.com/tools/flash/joy/movie.php"  Enable="1"/>
+    <NaviBar Name="Duomi 音乐" Url=" http://app.duomiyy.com/webradio/hao123/ "  Enable="1"/>
+    <NaviBar Name="Kugou电台" Url="   http://topic.kugou.com/radio/ "  Enable="1"/>
+    <NaviBar Name="酷狗音乐" Url=" http://web.kugou.com/default.html" Enable="1"/>
+  </Group>
+</NaviBars>

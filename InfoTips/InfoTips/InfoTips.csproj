@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8543D1B8-C03F-4FA5-93A4-2FA46EEE5EF2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InfoTips</RootNamespace>
+    <AssemblyName>InfoTips</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MarkMars.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="BaseCommon\MyLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\MyUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl火线.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl火线.Designer.cs">
+      <DependentUpon>UserControl火线.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl群聊.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl群聊.Designer.cs">
+      <DependentUpon>UserControl群聊.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form快捷键.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form快捷键.Designer.cs">
+      <DependentUpon>Form快捷键.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moudel\AutoUpdate.cs" />
+    <Compile Include="BaseCommon\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\BaseForm.Designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormInfo.Designer.cs">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moudel\DZLogin.cs" />
+    <Compile Include="Moudel\HotKey.cs" />
+    <Compile Include="Moudel\MySqlDB.cs" />
+    <Compile Include="Moudel\UpdateAction.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl持仓.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl持仓.Designer.cs">
+      <DependentUpon>UserControl持仓.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl新闻.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl新闻.Designer.cs">
+      <DependentUpon>UserControl新闻.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl日历.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl日历.Designer.cs">
+      <DependentUpon>UserControl日历.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl浏览.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl浏览.Designer.cs">
+      <DependentUpon>UserControl浏览.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl评论.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BaseCommon\UserControl评论.Designer.cs">
+      <DependentUpon>UserControl评论.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moudel\WMIManage.cs" />
+    <Compile Include="Moudel\财经信息.cs" />
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBroswer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBroswer.Designer.cs">
+      <DependentUpon>FormBroswer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSetting.Designer.cs">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Moudel\Utility.cs" />
+    <Compile Include="Moudel\WebUtility.cs" />
+    <Compile Include="Moudel\新闻信息.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaseCommon\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseCommon\MyUserControl.resx">
+      <DependentUpon>MyUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseCommon\UserControl火线.resx">
+      <DependentUpon>UserControl火线.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseCommon\UserControl群聊.resx">
+      <DependentUpon>UserControl群聊.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBroswer.resx">
+      <DependentUpon>FormBroswer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSetting.resx">
+      <DependentUpon>FormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form快捷键.resx">
+      <DependentUpon>Form快捷键.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInfo.resx">
+      <DependentUpon>FormInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseCommon\UserControl持仓.resx">
+      <DependentUpon>UserControl持仓.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseCommon\UserControl新闻.resx">
+      <DependentUpon>UserControl新闻.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseCommon\UserControl日历.resx">
+      <DependentUpon>UserControl日历.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseCommon\UserControl浏览.resx">
+      <DependentUpon>UserControl浏览.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseCommon\UserControl评论.resx">
+      <DependentUpon>UserControl评论.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="MarkMars.pfx" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Moudel\XMLHandle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App32.ico" />
+    <Content Include="NaviBar.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\b2.ico" />
+    <Content Include="Resources\b3.ico" />
+    <Content Include="Resources\b5.ico" />
+    <Content Include="Resources\b6.ico" />
+    <Content Include="Resources\backimg.gif" />
+    <Content Include="Resources\backimg.jpg" />
+    <Content Include="Resources\bg.png" />
+    <Content Include="Resources\cf.ico" />
+    <Content Include="Resources\chat.ico" />
+    <Content Include="Resources\cjlr.ico" />
+    <Content Include="Resources\cjlr.png" />
+    <None Include="Resources\close.png" />
+    <Content Include="Resources\g1.ico" />
+    <Content Include="Resources\g2.ico" />
+    <Content Include="Resources\g3.ico" />
+    <Content Include="Resources\g4.ico" />
+    <Content Include="Resources\gloed.ico" />
+    <Content Include="Resources\HOT.gif" />
+    <Content Include="Resources\hq.ico" />
+    <Content Include="Resources\logo-soft.gif" />
+    <Content Include="Resources\LOGO.jpg" />
+    <Content Include="Resources\money.ico" />
+    <Content Include="Resources\news.ico" />
+    <Content Include="Resources\news1.ico" />
+    <Content Include="Resources\noted.ico" />
+    <None Include="Resources\qp.ico" />
+    <Content Include="Resources\setting.ico" />
+    <Content Include="Resources\soft-ico.gif" />
+    <Content Include="Resources\usd.ico" />
+    <Content Include="Sound\Band.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sound\News.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sound\Notify.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=95fc6c5621878f0a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraNavBar.v11.1, Version=11.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraTreeList.v11.1, Version=11.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=5.0.8.1, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Management">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.XML">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoUpdate\AutoUpdate.csproj">
+      <Project>{300df611-e6a4-447f-86cb-fd409c50ce8a}</Project>
+      <Name>AutoUpdate</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
