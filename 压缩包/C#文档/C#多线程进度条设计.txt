@@ -1,0 +1,262 @@
+在多线程的情况下，其它线程无法直接调用到主线程上的控件，只能通过代理来实现主线程上控件的调用。
+
+1、定义委托
+　　// 执行任务的委托声明（解决长任务死假）
+　　delegate void RunTaskDelegate(int seconds);
+　　// 显示进度条的委托声明（跨线程调用控件）
+　　delegate void ShowProgressDelegate(int totalStep, int currentStep);
+2、定义方法
+　　private void ShowProgress(int totalStep, int currentStep)
+　　{
+　　　　progressBar1.Maximum = totalStep;
+　　　　progressBar1.Value = currentStep;
+　　}
+3、定义线程
+　　private void RunTask(int seconds)
+　　{
+　　　　ShowProgressDelegate showProgress = new ShowProgressDelegate(ShowProgress);
+　　　　for (int i = 0; i < seconds * 4; i++)
+　　　　{
+　　　　　　Thread.Sleep(250);
+　　　　　　// 在基础窗口上调用显示进度条的委托
+　　　　　　this.Invoke(showProgress, new object[] { seconds * 4, i + 1 });
+　　　　}
+　　}
+4、执行
+　　RunTaskDelegate runTask = new RunTaskDelegate(RunTask);
+　　// 异步调用执行任务的委托
+　　runTask.BeginInvoke(20, null, null);
+
+
+
+
+
+
+
+前言
+
+在我们应用程序开发过程中，经常会遇到一些问题，需要使用多线程技术来加以解决。本文就是通过几个示例程序给大家讲解一下多线程相关的一些主要问题。
+
+执行长任务操作
+
+　　许多种类的应用程序都需要长时间操作，比如：执行一个打印任务，请求一个 Web Service 调用等。用户在这种情况下一般会去转移做其他事情来等待任务的完成，同时还希望随时可以监控任务的执行进度。
+
+
+?/P>
+
+
+
+　　下面的代码片断示例了当长任务执行时用户界面是如何被更新的。
+
+
+// 显示进度条
+void ShowProgress( int totalStep, int currentStep )
+{
+_Progress.Maximum = totalStep;
+_Progress.Value = currentStep;
+}
+
+// 执行任务
+void RunTask( int seconds )
+{
+// 每 1 / 4 秒 显示进度一次
+for( int i = 0; i < seconds * 4; i++ )
+{
+Thread.Sleep( 250 );
+
+// 显示进度条
+ShowProgress( seconds * 4, i + 1 );
+}
+}
+
+private void _btnRun_Click( object sender, System.EventArgs e )
+{
+RunTask( Convert.ToInt32( _txtSecond.Value ) );
+}
+ 
+
+
+当我们运行上面的程序，在整个长任务的过程中，没有出现任何问题。这样就真的没有问题了吗？当我们切换应用程序去做其他事情后再切换回来，问题就发生了！主窗体就会出现如下情况：
+
+
+
+
+　　这个问题当然会发生，因为我们现在的应用程序是单线程的，因此，当线程执行长任务时，它同时也就不能重画用户界面了。
+
+为什么在我们切换应用程序后，问题才发生呢？这是因为当你切换当前应用程序到后台再切换回前台时，我们需要重画整个用户界面。但是应用程序正在执行长任务，根本没有时间处理用户界面的重画，问题就会发生。
+
+如何解决问题呢？我们需要将长任务放在后台运行，把用户界面线程解放出来，因此我们需要另外一个线程。
+
+线程异步操作
+
+　　我们上面程序中执行按钮的Click 处理如下：
+
+
+private void _btnRun_Click( object sender, System.EventArgs e )
+{
+RunTask( Convert.ToInt32( _txtSecond.Value ) );
+}
+ 
+
+
+回想上面刚才问题发生的原因，直到 RunTask 执行完成后返回，Click 处理函数始终不能够返回，这就意味着用户界面不能处理重画事件或其他任何事件。一个解决方法就是创建另外一个线程，代码片断如下：
+
+
+using System.Threading;
+
+private int _seconds;
+
+// 执行任务工作线程进入点
+void RunTaskThreadStart()
+{
+RunTask( _seconds );
+}
+
+// 通过创建工作线程消除用户界面线程的阻塞问题
+private void _btnRun_Click( object sender, System.EventArgs e )
+{
+_seconds = Convert.ToInt32( _txtSecond.Value );
+
+Thread runTaskThread = new Thread( new ThreadStart( RunTaskThreadStart ) );
+
+runTaskThread.Start();
+}
+ 
+
+
+现在，我们不再需要等待 RunTask 执行完成才能够从 Click 事件返回，我们创建了新的工作线程并让它开始工作、运行。
+
+
+
+
+　　runTaskThread.Start(); 将我们新创建的工作线程调度执行并立即返回，允许我们的用户界面线程重新获得控制权执行它自己的工作。现在如果用户再切换应用程序，因为工作线程在自己的 空间执行长任务，用户界面线程被解放出来处理包括用户界面重画的各种事件，我们上面遇到的问题就解决了。
+
+委托异步调用
+
+　　在上面的代码中，我们注意到，我们没有给工作线程进入点（RunTaskThreadStart）传递任何参数，我们采用声明一个窗体类的字段 _seconds 来给工作线程传递参数。在某种应用场合不能够给工作线程直接传递参数也是一件非常痛苦的事情。
+
+如何改进呢？我们可以使用委托来进行异步调用。委托是支持传递参数的。这样，就消除了我们刚才的问题，使我们能够消除额外的字段声明和额外的工作线程函数。
+
+如果你不熟悉委托，你可以简单的把它理解为安全的函数指针。采用了委托异步调用，代码片断如下：
+
+
+// 执行任务的委托声明
+delegate void RunTaskDelegate( int seconds );
+
+// 通过创建委托解决传递参数问题
+private void _btnRun_Click( object sender, System.EventArgs e )
+{
+RunTaskDelegate runTask = new RunTaskDelegate( RunTask );
+
+// 委托同步调用方式
+runTask( Convert.ToInt16( _txtSecond.Value ) );
+}
+
+//通过创建委托解决传递参数问题，通过委托的异步调用消除用户界面线程的阻塞问题
+private void _btnRun_Click( object sender, System.EventArgs e )
+{
+RunTaskDelegate runTask = new RunTaskDelegate( RunTask );
+
+// 委托异步调用方式
+runTask.BeginInvoke( Convert.ToInt16( _txtSecond.Value ), null, null );
+}
+ 
+
+多线程安全
+
+　　到这里为止，我们已经解决了长任务的难题和传递参数的困扰。但是我们真的解决了全部问题吗？回答是否定的。
+
+我们知道 Windows 编程中有一个必须遵守的原则，那就是在一个窗体创建线程之外的任何线程中都不允许操作窗体。
+
+我们上面的程序就是存在这样的问题：工作线程是在 ShowProgress 方法中修改了用户界面的进度条的属性。那为什么程序运行没有出现问题，运行正常呢？
+
+没有发生问题是因为是现在的Windows XP操作系统对这类问题有非常健壮的解决方法，让我们避免了问题的发生。但是我们现在的程序不能保证在其他的操作系统能够运行正常！
+
+　　真正的解决方法是我们能够认识到问题所在，并在程序中加以避免。
+
+
+
+
+　　如何避免多线程的窗体资源访问的安全问题呢？其实非常简单，有两种方法：
+
+一种方法就是不管线程是否是用户界面线程，对用户界面资源的访问统一由委托完成；
+
+另一种方法是在每个 Windows Forms 用户界面类中都有一个 InvokeRequired 属性，它用来标识当前线程是否能够直接访问窗体资源。我们只需要检查这个属性的值，只有当允许直接访问窗体资源时才直接访问相应的资源，否则，就需要通过 委托进行访问了。
+
+　　采用第一种安全的方法的代码片断如下：
+
+
+
+ 
+
+// 显示进度条的委托声明
+delegate void ShowProgressDelegate( int totalStep, int currentStep );
+
+// 显示进度条
+void ShowProgress( int totalStep, int currentStep )
+{
+_Progress.Maximum = totalStep;
+_Progress.Value = currentStep;
+}
+
+// 执行任务的委托声明
+delegate void RunTaskDelegate( int seconds );
+
+// 执行任务
+void RunTask( int seconds )
+{
+ShowProgressDelegate showProgress = new ShowProgressDelegate( ShowProgress );
+
+// 每 1 / 4 秒 显示进度一次
+for( int i = 0; i < seconds * 4; i++ )
+{
+Thread.Sleep( 250 );
+
+// 显示进度条
+this.Invoke( showProgress, new object[] { seconds * 4, i + 1 } );
+}
+}
+
+
+　　采用第二种安全的方法的代码片断如下：
+
+// 显示进度条的委托声明
+delegate void ShowProgressDelegate( int totalStep, int currentStep );
+
+// 显示进度条
+void ShowProgress( int totalStep, int currentStep )
+{
+if( _Progress.InvokeRequired )
+{
+ShowProgressDelegate showProgress = new ShowProgressDelegate( ShowProgress );
+
+// 为了避免工作线程被阻塞，采用异步调用委托
+this.BeginInvoke( showProgress, new object[] { totalStep, currentStep } );
+}
+else
+{
+_Progress.Maximum = totalStep;
+_Progress.Value = currentStep;
+}
+}
+
+// 执行任务的委托声明
+delegate void RunTaskDelegate( int seconds );
+
+// 执行任务
+void RunTask( int seconds )
+{
+// 每 1 / 4 秒 显示进度一次
+for( int i = 0; i < seconds * 4; i++ )
+{
+Thread.Sleep( 250 );
+
+// 显示进度条
+ShowProgress( seconds * 4, i + 1 );
+}
+}
+
+至此，我们用了几个示例说明了如何执行长任务、如何通过多线程异步处理任务进度的显示并解决了多线程的安全性等问题。希望能够给大家对理解多线程编程、委托的使用、异步调用等方面提供一些帮助，也希望能和大家进行进一步的沟通和交流。
+
+ 
+
