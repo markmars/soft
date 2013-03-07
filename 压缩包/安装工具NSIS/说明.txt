@@ -1,0 +1,8 @@
+KillProcDll&FindProcDll.zip:
+将文件'FindProcDLL.dll' 复制到 NSIS 安装路径的【plugins】文件夹中。
+
+
+lzma:
+把文件覆盖到c:\Program Files (x86)\NSIS\Stubs\
+这个文件是基于版本2.46, 直接在原始的文件上编辑的, 只能用于2.46版
+做的修改是把文件不完整时(往往是软件下载的时候有问题)的提示改为中文
