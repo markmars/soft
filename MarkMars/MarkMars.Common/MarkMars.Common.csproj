@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EAF3F8E3-BFAB-4FB9-B1D5-02B6D018CAAD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarkMars.Common</RootNamespace>
+    <AssemblyName>MarkMars.Common</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>MarkMars.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SevenZipSharp, Version=0.64.3890.29348, Culture=neutral, PublicKeyToken=20de82c62b055c88, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\SevenZipSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Output\System.Data.SqlServerCe.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataBase\AccessDatabase.cs" />
+    <Compile Include="DataBase\AccessDatabase_ODBC.cs" />
+    <Compile Include="DataBase\AccessDatabase_OLEDB_ACE.cs" />
+    <Compile Include="DataBase\AccessDatabase_OLEDB_JET.cs" />
+    <Compile Include="DataBase\AccessType.cs" />
+    <Compile Include="DataBase\FileDatabase.cs" />
+    <Compile Include="DataBase\IDatabase.cs" />
+    <Compile Include="DataBase\IFileDatabase.cs" />
+    <Compile Include="DataBase\SQLServerCEDatabase.cs" />
+    <Compile Include="DataBase\SQLServerConnectionSetting.cs" />
+    <Compile Include="DataBase\SQLServerDatabase.cs" />
+    <Compile Include="DataBase\Utility.cs" />
+    <Compile Include="DataBase\ZippedFileDatabase.cs" />
+    <Compile Include="ImportExcel\FormImportExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportExcel\FormImportExcel.Designer.cs">
+      <DependentUpon>FormImportExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tree\AutoID.cs" />
+    <Compile Include="Tree\TreeBase.cs" />
+    <Compile Include="Tree\TreeNodeBase.cs" />
+    <Compile Include="Webform\JS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Winform\Base64Decoder.cs" />
+    <Compile Include="Winform\Base64Encoder.cs" />
+    <Compile Include="Winform\Base64JM.cs" />
+    <Compile Include="Winform\BinaryFileFormat.cs" />
+    <Compile Include="Winform\BinaryFileFormatReader.cs" />
+    <Compile Include="Winform\CommonConsts.cs" />
+    <Compile Include="Winform\Compiler.cs" />
+    <Compile Include="Winform\Downloader.cs" />
+    <Compile Include="Winform\EncryptDecrypt.cs" />
+    <Compile Include="Winform\ExceptionHandler.cs" />
+    <Compile Include="Winform\FileType.cs" />
+    <Compile Include="Winform\FormHelper.cs" />
+    <Compile Include="Winform\FormSQLServerConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Winform\FormSQLServerConnection.Designer.cs">
+      <DependentUpon>FormSQLServerConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Winform\Ftp.cs" />
+    <Compile Include="Winform\ftpHelper.cs" />
+    <Compile Include="Winform\GetUSBApi.cs" />
+    <Compile Include="Winform\HTMLFile.cs" />
+    <Compile Include="Winform\Http.cs" />
+    <Compile Include="Winform\INIFile.cs" />
+    <Compile Include="Winform\IPDaiLi.cs" />
+    <Compile Include="Winform\IPSearch.cs" />
+    <Compile Include="Winform\Mail.cs" />
+    <Compile Include="Winform\MailStudy.cs" />
+    <Compile Include="Winform\MailStudy1.cs" />
+    <Compile Include="Winform\OffsetStream.cs" />
+    <Compile Include="Winform\RegisterClass.cs" />
+    <Compile Include="Winform\TempFileManager.cs" />
+    <Compile Include="Winform\User32API.cs" />
+    <Compile Include="Winform\Utility.cs" />
+    <Compile Include="Winform\WinAPI.cs" />
+    <Compile Include="Winform\WMIManage.cs" />
+    <Compile Include="Winform\Word2PinYin.cs" />
+    <Compile Include="Winform\XmlManage.cs" />
+    <Compile Include="Winform\ZipWrapper.cs" />
+    <Compile Include="Winform\身份证号码.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ImportExcel\FormImportExcel.resx">
+      <DependentUpon>FormImportExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Winform\FormSQLServerConnection.resx">
+      <DependentUpon>FormSQLServerConnection.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Library\7z.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\SevenZipSharp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\sqlceca35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\sqlcecompact35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\sqlceer35EN.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\sqlceme35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\sqlceoledb35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\sqlceqp35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\sqlcese35.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Library\System.Data.SqlServerCe.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MarkMars.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
