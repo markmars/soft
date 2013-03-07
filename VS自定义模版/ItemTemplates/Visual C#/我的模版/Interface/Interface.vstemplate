@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name Package="" ID="" />
+    <Description Package="" ID="" />
+    <Icon Package="" ID="" />
+    <TemplateID>Microsoft.CSharp.Interface</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>92</SortOrder>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>Interface.cs</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+		<References>
+			<Reference>
+				<Assembly>System</Assembly>
+			</Reference>
+		</References>
+
+    <ProjectItem ReplaceParameters="true">Interface.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

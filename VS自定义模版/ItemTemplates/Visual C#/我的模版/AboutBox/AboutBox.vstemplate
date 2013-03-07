@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name Package="" ID=""/>
+    <Description Package="" ID=""/>
+    <Icon Package="" ID=""/>
+    <TemplateID>Microsoft.CSharp.AboutBox</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>AboutBox.cs</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+        <References>
+            <Reference>
+                <Assembly>System</Assembly>
+            </Reference>
+            <Reference>
+                <Assembly>System.Data</Assembly>
+            </Reference>
+            <Reference>
+                <Assembly>System.Drawing</Assembly>
+            </Reference>
+            <Reference>
+                <Assembly>System.Windows.Forms</Assembly>
+            </Reference>
+        </References>
+
+    <ProjectItem ReplaceParameters="true" SubType="Form">AboutBox.cs</ProjectItem>
+    <ProjectItem ReplaceParameters="true">AboutBox.Designer.cs</ProjectItem>
+    <ProjectItem TargetFileName="$fileinputname$.resx">AboutBox.resx</ProjectItem>
+
+    <CustomParameters>
+        <CustomParameter _locID="$IT_AB_CS_Loc_1$" Name="$IT_AB_CS_Loc_1$" Value="产品名称"/>
+        <CustomParameter _locID="$IT_AB_CS_Loc_2$" Name="$IT_AB_CS_Loc_2$" Value="版本"/>
+        <CustomParameter _locID="$IT_AB_CS_Loc_3$" Name="$IT_AB_CS_Loc_3$" Value="公司名称"/>
+        <CustomParameter _locID="$IT_AB_CS_Loc_4$" Name="$IT_AB_CS_Loc_4$" Value="说明"/>
+        <CustomParameter _locID="$IT_AB_CS_Loc_5$" Name="$IT_AB_CS_Loc_5$" Value="确定(&amp;O)"/>
+        <CustomParameter _locID="$IT_AB_CS_Loc_6$" Name="$IT_AB_CS_Loc_6$" Value="关于 {0}"/>
+        <CustomParameter _locID="$IT_AB_CS_Loc_7$" Name="$IT_AB_CS_Loc_7$" Value="版本 {0}"/>
+        <CustomParameter _locID="$IT_AB_CS_Loc_8$" Name="$IT_AB_CS_Loc_8$" Value="版权"/>
+    </CustomParameters>
+
+
+  </TemplateContent>
+
+  
+</VSTemplate>
